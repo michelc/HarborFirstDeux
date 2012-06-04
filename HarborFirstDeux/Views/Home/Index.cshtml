@@ -1,0 +1,16 @@
+﻿@model IEnumerable<HarborFirstDeux.Models.User>
+
+<h2>Index</h2>
+
+<ul>
+    @foreach (var user in Model)
+    {
+        <li>@user.Name</li>
+    }
+</ul>
+
+@using (Html.BeginForm("Create", "Home", FormMethod.Post))
+{
+    <input type="text" name="Name" />
+    <input type="submit" value="Submit" />
+}
