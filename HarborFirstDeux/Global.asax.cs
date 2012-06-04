@@ -30,21 +30,6 @@ namespace HarborFirstDeux
 
         }
 
-        public enum AppEnvironment
-        {
-            Debug,
-            Test,
-            Release
-        }
-
-        public static AppEnvironment Environmentx
-        {
-            get
-            {
-                return (AppEnvironment)Enum.Parse(typeof(AppEnvironment), ConfigurationManager.AppSettings["Environment"]);
-            }
-        }
-
         public static string Environment
         {
             get
