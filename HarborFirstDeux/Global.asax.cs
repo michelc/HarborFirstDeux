@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 using System.Configuration;
+using System.Data.Entity;
 
 namespace HarborFirstDeux
 {
@@ -41,6 +42,8 @@ namespace HarborFirstDeux
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
+
+            Database.SetInitializer(new CreateDatabaseIfNotExists<HarborFirstDeux.Persistence.HfdContext>());
 
             RegisterGlobalFilters(GlobalFilters.Filters);
             RegisterRoutes(RouteTable.Routes);
